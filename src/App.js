@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import freeCodeCampLogo from './images/freeCodeCampLogo.png';
+import Boton from './Components/Boton';
+import { useState } from 'react';
 
 function App() {
+  const [counter, setcounter] = useState(0);
+
+  const handleClic = () => {
+    console.log('Hiciste clic');
+  };
+
+  const resetCounter = () => {
+    console.log('Reiniciaste clic');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='freecodecamp-logo-container'>
+        <img
+          className='freecodecamp-logo'
+          src={freeCodeCampLogo}
+          alt='logo de freecodecamp'
+        />
+      </div>
+      <div className='counter-main-container'>
+        <Boton texto='Clic' esBotonDeClic={true} handleClic={handleClic} />
+        <Boton texto='Reset' esBotonDeClic={false} handleClic={resetCounter} />
+      </div>
     </div>
   );
 }
